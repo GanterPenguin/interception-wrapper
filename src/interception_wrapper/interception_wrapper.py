@@ -3,7 +3,7 @@ from win32.win32api import GetSystemMetrics
 from interception_py.interception import *
 from interception_py.stroke import *
 from interception_py.consts import *
-from utils import *
+from .utils import *
 
 # get screen size
 _screen_width = GetSystemMetrics(0)
