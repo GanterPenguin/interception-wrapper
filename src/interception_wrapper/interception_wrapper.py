@@ -43,6 +43,15 @@ class _InterceptionWrapper:
         k_stroke = key_stroke(keycode, interception_key_state.INTERCEPTION_KEY_DOWN.value, 0)
         self.context.send(self.keyboard, k_stroke)
 
+    def mouse_move(self, x, y, flag="absolute"):
+        mstroke = mouse_stroke(mouse_button_state["left"]["up"],
+                               mouse_flag[flag],
+                               0,
+                               to_hexadecimal(_screen_width, x),
+                               to_hexadecimal(_screen_height, y),
+                               0)
+        self.context.send(self.mouse, mstroke)
+
     def click_mouse_with_coordinates(self, x, y, button="left", flag="absolute"):
         mstroke = mouse_stroke(mouse_button_state[button]["down"],
                                mouse_flag[flag],
